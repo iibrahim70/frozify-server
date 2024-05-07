@@ -1,6 +1,7 @@
 import httpStatus from 'http-status';
 import catchAsync from '../utils/catchAsync';
 import sendResponse from '../utils/sendResponse';
+import { ProductServices } from '../services/product.service';
 
 const addProduct = catchAsync(async (req, res) => {
   const payload = req.body;
@@ -16,7 +17,7 @@ const addProduct = catchAsync(async (req, res) => {
 });
 
 const getAllProducts = catchAsync(async (req, res) => {
-  const result = await ProductServices.getAllProductsFromDB(payload);
+  const result = await ProductServices.getAllProductsFromDB();
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
