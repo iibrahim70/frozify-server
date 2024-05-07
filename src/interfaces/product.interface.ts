@@ -1,6 +1,6 @@
 interface IProduct {
   productName: string;
-  producttitle: string;
+  productTitle: string;
   brandName: string;
   price: number;
   discountPercent: number;
