@@ -1,4 +1,5 @@
 import QueryBuilder from '../builder/QueryBuilder';
+import { IProduct } from '../interfaces/product.interface';
 import { Product } from '../models/product.model';
 
 const addProductFromDB = async (payload: IProduct) => {

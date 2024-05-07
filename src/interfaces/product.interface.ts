@@ -1,4 +1,4 @@
-interface IProduct {
+export interface IProduct {
   productName: string;
   productTitle: string;
   brandName: string;

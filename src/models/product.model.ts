@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose';
+import { IProduct } from '../interfaces/product.interface';
 
 const productSchema = new Schema<IProduct>(
   {
