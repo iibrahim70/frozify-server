@@ -1,3 +1,4 @@
+import QueryBuilder from '../builder/QueryBuilder';
 import { Product } from '../models/product.model';
 
 const addProductFromDB = async (payload: IProduct) => {
@@ -6,9 +7,14 @@ const addProductFromDB = async (payload: IProduct) => {
   return result;
 };
 
-const getAllProductsFromDB = async () => {
-  const result = Product.find().sort({ createdAt: -1 });
+const getAllProductsFromDB = async (query: Record<string, unknown>) => {
+  const productsQuery = new QueryBuilder(Product.find(), query)
+    .filter()
+    .sort()
+    .paginate()
+    .fields();
 
+  const result = await productsQuery.modelQuery;
   return result;
 };
 

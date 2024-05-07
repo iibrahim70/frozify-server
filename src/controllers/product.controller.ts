@@ -4,7 +4,7 @@ import sendResponse from '../utils/sendResponse';
 import { ProductServices } from '../services/product.service';
 
 const addProduct = catchAsync(async (req, res) => {
-  const payload = req.body;
+  const payload = req?.body;
 
   const result = await ProductServices.addProductFromDB(payload);
 
@@ -17,7 +17,7 @@ const addProduct = catchAsync(async (req, res) => {
 });
 
 const getAllProducts = catchAsync(async (req, res) => {
-  const result = await ProductServices.getAllProductsFromDB();
+  const result = await ProductServices.getAllProductsFromDB(req?.query);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -28,7 +28,7 @@ const getAllProducts = catchAsync(async (req, res) => {
 });
 
 const getSingleProduct = catchAsync(async (req, res) => {
-  const productId = req.params?.id;
+  const productId = req?.params?.id;
 
   const result = await ProductServices.getSingleProductFromDB(productId);
 
@@ -41,8 +41,8 @@ const getSingleProduct = catchAsync(async (req, res) => {
 });
 
 const updateProduct = catchAsync(async (req, res) => {
-  const payload = req.body;
-  const productId = req.params?.id;
+  const payload = req?.body;
+  const productId = req?.params?.id;
 
   const result = await ProductServices.updateProductFromDB(payload, productId);
 
@@ -55,7 +55,7 @@ const updateProduct = catchAsync(async (req, res) => {
 });
 
 const deleteProduct = catchAsync(async (req, res) => {
-  const productId = req.params?.id;
+  const productId = req?.params?.id;
 
   const result = await ProductServices.deleteProductFromDB(productId);
 
