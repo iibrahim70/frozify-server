@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { ProductControllers } from '../controllers/product.controller';
 import validateRequest from '../middlewares/validateRequest';
-import productValidationSchema from '../interfaces/product.interface';
+import productValidationSchema from '../validations/product.validation';
 
 const router = Router();
 
