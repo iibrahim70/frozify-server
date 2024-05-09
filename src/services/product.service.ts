@@ -1,4 +1,5 @@
 import QueryBuilder from '../builder/QueryBuilder';
+import shuffleArray from '../helpers/shuffleArray';
 import { IProduct } from '../interfaces/product.interface';
 import { Product } from '../models/product.model';
 
@@ -16,6 +17,21 @@ const getAllProductsFromDB = async (query: Record<string, unknown>) => {
     .fields();
 
   const result = await productsQuery.modelQuery;
+  return result;
+};
+
+const getAllPopularProductsFromDB = async (query: Record<string, unknown>) => {
+  const productsQuery = new QueryBuilder(Product.find(), query)
+    .filter()
+    .sort()
+    .paginate()
+    .fields();
+
+  const products = await productsQuery.modelQuery;
+
+  // Shuffle the products randomly
+  const result = shuffleArray(products);
+
   return result;
 };
 
@@ -40,6 +56,7 @@ const deleteProductFromDB = async (id: string) => {
 export const ProductServices = {
   addProductFromDB,
   getAllProductsFromDB,
+  getAllPopularProductsFromDB,
   getSingleProductFromDB,
   updateProductFromDB,
   deleteProductFromDB,
