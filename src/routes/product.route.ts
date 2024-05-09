@@ -11,7 +11,9 @@ router.post(
   ProductControllers.addProduct,
 );
 router.get('/', ProductControllers.getAllProducts);
+router.get('/popular-products', ProductControllers.getAllPopularProducts);
 router.get('/:id', ProductControllers.getSingleProduct);
+
 router.patch('/:id', ProductControllers.updateProduct);
 router.delete('/:id', ProductControllers.deleteProduct);
 
