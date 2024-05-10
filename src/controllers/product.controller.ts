@@ -28,7 +28,9 @@ const getAllProducts = catchAsync(async (req, res) => {
 });
 
 const getAllFlashSaleProducts = catchAsync(async (req, res) => {
-  const result = await ProductServices.getAllFlashSaleProductsFromDB();
+  const result = await ProductServices.getAllFlashSaleProductsFromDB(
+    req?.query,
+  );
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -39,7 +41,7 @@ const getAllFlashSaleProducts = catchAsync(async (req, res) => {
 });
 
 const getAllPopularProducts = catchAsync(async (req, res) => {
-  const result = await ProductServices.getAllPopularProductsFromDB();
+  const result = await ProductServices.getAllPopularProductsFromDB(req?.query);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

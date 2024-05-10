@@ -20,8 +20,19 @@ const getAllProductsFromDB = async (query: Record<string, unknown>) => {
   return result;
 };
 
-const getAllFlashSaleProductsFromDB = async () => {
-  const products = await Product.find({ flashSale: true });
+const getAllFlashSaleProductsFromDB = async (
+  query: Record<string, unknown>,
+) => {
+  // Add flashSale true condition to the query
+  query = { ...query, flashSale: true };
+
+  const productsQuery = new QueryBuilder(Product.find(), query)
+    .filter()
+    .sort()
+    .paginate()
+    .fields();
+
+  const products = await productsQuery.modelQuery;
 
   // Shuffle the products randomly
   const result = shuffleArray(products);
@@ -29,8 +40,14 @@ const getAllFlashSaleProductsFromDB = async () => {
   return result;
 };
 
-const getAllPopularProductsFromDB = async () => {
-  const products = await Product.find();
+const getAllPopularProductsFromDB = async (query: Record<string, unknown>) => {
+  const productsQuery = new QueryBuilder(Product.find(), query)
+    .filter()
+    .sort()
+    .paginate()
+    .fields();
+
+  const products = await productsQuery.modelQuery;
 
   // Shuffle the products randomly
   const result = shuffleArray(products);
