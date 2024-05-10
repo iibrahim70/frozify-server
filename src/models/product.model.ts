@@ -12,7 +12,7 @@ const productSchema = new Schema<IProduct>(
       type: String,
       required: true,
     },
-    brandName: {
+    brand: {
       type: String,
       required: true,
     },

@@ -1,7 +1,7 @@
 export interface IProduct {
   productName: string;
   productTitle: string;
-  brandName: string;
+  brand: string;
   price: number;
   discountPercent: number;
   flashSale: boolean;

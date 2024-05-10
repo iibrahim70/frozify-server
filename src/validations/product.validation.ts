@@ -10,7 +10,7 @@ const productValidationSchema = z.object({
       required_error: 'Product Title is required.',
       invalid_type_error: 'Product Title must be a string.',
     }),
-    brandName: z.string({
+    brand: z.string({
       required_error: 'Brand Name is required.',
       invalid_type_error: 'Brand Name must be a string.',
     }),
