@@ -20,14 +20,8 @@ const getAllProductsFromDB = async (query: Record<string, unknown>) => {
   return result;
 };
 
-const getAllPopularProductsFromDB = async (query: Record<string, unknown>) => {
-  const productsQuery = new QueryBuilder(Product.find(), query)
-    .filter()
-    .sort()
-    .paginate()
-    .fields();
-
-  const products = await productsQuery.modelQuery;
+const getAllPopularProductsFromDB = async () => {
+  const products = await Product.find();
 
   // Shuffle the products randomly
   const result = shuffleArray(products);

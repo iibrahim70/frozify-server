@@ -28,7 +28,7 @@ const getAllProducts = catchAsync(async (req, res) => {
 });
 
 const getAllPopularProducts = catchAsync(async (req, res) => {
-  const result = await ProductServices.getAllPopularProductsFromDB(req?.query);
+  const result = await ProductServices.getAllPopularProductsFromDB();
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
