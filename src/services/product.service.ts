@@ -20,6 +20,15 @@ const getAllProductsFromDB = async (query: Record<string, unknown>) => {
   return result;
 };
 
+const getAllFlashSaleProductsFromDB = async () => {
+  const products = await Product.find({ flashSale: true });
+
+  // Shuffle the products randomly
+  const result = shuffleArray(products);
+
+  return result;
+};
+
 const getAllPopularProductsFromDB = async () => {
   const products = await Product.find();
 
@@ -50,6 +59,7 @@ const deleteProductFromDB = async (id: string) => {
 export const ProductServices = {
   addProductFromDB,
   getAllProductsFromDB,
+  getAllFlashSaleProductsFromDB,
   getAllPopularProductsFromDB,
   getSingleProductFromDB,
   updateProductFromDB,
