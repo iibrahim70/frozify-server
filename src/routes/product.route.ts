@@ -11,6 +11,7 @@ router.post(
   ProductControllers.addProduct,
 );
 router.get('/', ProductControllers.getAllProducts);
+router.get('/flash-sale', ProductControllers.getAllFlashSaleProducts);
 router.get('/popular-products', ProductControllers.getAllPopularProducts);
 router.get('/:id', ProductControllers.getSingleProduct);
 
