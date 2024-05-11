@@ -1,5 +1,25 @@
 # Frozify - Backend
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Technologies Used](#technologies-used)
+- [Project Overview](#project-overview)
+- [Key Features](#key-features)
+- [API Endpoints](#api-endpoints)
+  - [Products](#products)
+    - [Add Product](#add-product)
+    - [Get All Products](#get-all-products)
+    - [Get All Flash Sale Products](#get-all-flash-sale-products)
+    - [Get All Popular Products](#get-all-popular-products)
+    - [Get Single Product](#get-single-product)
+    - [Update Product](#update-product)
+    - [Delete Product](#delete-product)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [Contributing](#contributing)
+
 ## Introduction
 
 Welcome to the backend repository of Frozify, the premier online platform dedicated to all things refrigeration. This backend repository serves as the foundation for Frozify's dynamic marketplace, providing robust server-side functionalities and seamless integration with the frontend. Leveraging advanced technologies such as Node.js, Express, TypeScript, MongoDB, and Mongoose, this backend system ensures optimal performance, scalability, and reliability for Frozify's ecosystem.
